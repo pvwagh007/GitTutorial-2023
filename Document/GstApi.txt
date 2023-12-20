@@ -24,7 +24,7 @@ GstDetailsApi ( skuIds, invoiceDate )
 			else
 			{
 					gst_hsn_rate
-					
+					parmeshwar wagh
 				   SELECT pkgsthsnrateid, MAX(integrated_gstrate)";
 				   FROM gst_hsn_rate WHERE pkgsthsnrateid in(:gstIds)  AND isactive='Y' GROUP BY integrated_gstrate DESC LIMIT 1
 			}
@@ -34,4 +34,6 @@ GstDetailsApi ( skuIds, invoiceDate )
 		      where skuMaster.gstHsnRate.pkgsthsnrateid =:commaSeparategstIds and skuMaster.pkskuid in (:skuIds) 
 		      AND  (skuMaster.gstHsnRate.pkgsthsnrateid is not null  OR skuMaster.gsthsncodenew is not ('')) 
 		      AND skuMaster.gsthsncodeneweffectivedate <=:invoiceDate
+
+
 			
