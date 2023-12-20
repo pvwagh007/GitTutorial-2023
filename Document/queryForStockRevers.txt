@@ -1,0 +1,31 @@
+select sum(wls.qty) as sum
+from wms_locationskuqty wls
+left join wms_locationmgt wlm on wlm.pklocationmgtid=wls.fklocationmgtid
+where wlm.fkwarehouseid=34 and wlm.isdamage='N' and wls.fkskuid=9147 and wls.qty>0 and wls.isactive=1  and wlm.isactive=1
+
+
+
+/------------------------------------------------------------------------------------------*/
+SELECT wss.closingqty,wss.nlpqty , wss.underprocess , wss.nlpunderprocess ,wss.virtualqty ,
+wss.virtualunderprocess , wss.stocktransferqty , wss.virtualstocktransferqty , wss.fkskuid, wss.stockintransitqty, wss.pkskustockid,
+wss.wholesalerqty, wss.wholesalerunderprocessqty, wss.wholesalerstocktransferqty, wss.pkskustockid
+FROM wms_skustock wss 
+JOIN wms_warehouse warehouse ON warehouse.pkwarehouseid = wss.fkwarehouseid
+JOIN sku_master skumaster ON skumaster.pkskuid = wss.fkskuid
+WHERE skumaster.pkskuid =9147 and warehouse.pkwarehouseid =34
+
+
+--------------------------------------------------------------------
+select wss.closingqty,wss.nlpqty , wss.underprocess , wss.nlpunderprocess ,wss.virtualqty ,
+wss.virtualunderprocess , wss.stocktransferqty , wss.virtualstocktransferqty , skuMaster.pkskuid, wss.stockintransitqty, wss.pkskustockid,
+wss.wholesalerqty, wss.wholesalerunderprocessqty, wss.wholesalerstocktransferqty, wss.pkskustockid
+from WmsSkustock wss
+join wss.wmsWarehouse wmsWarehouse
+join wss.skuMaster skuMaster
+where wmsWarehouse.pkwarehouseid =34
+and skuMaster.pkskuid = 9147
+
+
+
+
+ 

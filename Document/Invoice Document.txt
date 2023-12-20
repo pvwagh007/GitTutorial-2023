@@ -1,0 +1,167 @@
+Print order couirer
+
+Setting table Ids
+
+        NaaptolWhatsappNumber= 380
+        invoiceRepeatCustomer = 482
+        inoviceQRGeneratorEnable = 510
+        naaptoluipid = 511
+        fedexInvoiceLogisticIdsList = 524
+        invoiceDisablePhoneNumberSellerIds = 538
+        inovicePriorityImageReplaceLogisticIds = 539
+        amazonInvoiceLogisticIds = 540
+
+
+
+orderLablePrint.jsp
+			||
+	orderDetailBulkPrint.jsp
+			||
+		first part- 1)amazonOrderPrintDetailContent.jsp    
+					2)fedexOrderPrintDetailContent.jsp
+					
+					
+					3)orderPrintDetailContent.jsp
+								||							
+############################################################################################								
+		Second part-1)gstPrintInvoicePerformaConten.jsp   
+								||
+						-->InvoicePrintGeneration.java
+		
+	1) getProductInvoiceCode
+	
+		Query:-	  select omsOrderitem 
+          from OmsOrderitem omsOrderitem
+          join omsOrderitem.omsOrder omsOrder 
+		  where omsOrder.pkorderid =:orderId 
+		  and omsOrderitem.isactive='1'
+		
+		Query:-   
+			select wmsWarehouse.pkwarehouseid , wmsWarehouse.warehousename ,   	wmsWarehouse.cspcndByFkstateid,wmsWarehouse.warehousetype,
+       		wmsWarehouse.cspcndByFkstateid.cndrfnum ,warehouseSellerLink.isexceptionforsettlement 
+            from WmsWarehousesellerlink warehouseSellerLink join warehouseSellerLink.sellerInfo as sellerInfo with sellerInfo.isactive = 'Y'
+            join warehouseSellerLink.wmsWarehouse as wmsWarehouse with wmsWarehouse.isactive = '1'
+            where warehouseSellerLink.isactive in(1,2) 
+            and sellerInfo.sellerId = sellerId 
+            order by wmsWarehouse.warehousename
+			
+		Query:-
+		
+			if(omsOrderitem && itemmaster is not null)
+			{
+			  		sku			
+						skuIds,invoiceDate			
+						gstHsnRatetime			
+						gstHsnRate			
+			}
+			else
+			{
+				   product
+				   gstHsnRatetime
+				   gstHsnRate
+			}
+			
+###############################################################################################		
+					if /Warehouse Type is Null
+					
+						//Parent Seller Name
+					
+					
+					else if wareHouseType==c && Y==isexceptionforsettlement
+						
+						//Parent Seller Name
+					
+					else if  wareHouseType==V
+					
+						//	//Child Seller Name
+						
+					else
+					
+						//	//Child Seller Name						
+########################################################################################################
+
+	 SellerAddress
+	 
+	 seller getGstin Number
+	 
+########################################################################################################	
+						
+						
+					
+		if("517" == warehousecspcndStateid && omsOrderStateId) &invoice date >kfcflag date = 31/07/2019 )
+		{
+		      State cspcndStateCode
+			  State Code: getEf4
+			  kfcFlag=true;
+		}
+		else if(sellerInfoStateId)
+		{
+		      State cspcndStateCode
+			  State Code: getEf4
+			  kfcFlag=true;				
+		}
+		
+	// customer information hidden from midoffice
+
+############################ Address Section Start ####################################	
+
+customer address  logic		
+		
+		// First 10 characters show and rest as XXXXXX   --other states
+		
+		
+		vendorLogin  and statemasterid = 15 ,113
+		
+		if(invoiceAddressImageEnable)
+		{
+				address
+		}
+		else{
+				address
+		}
+						
+#############################Address Section End  ##################################				
+					
+									
+    ##########  Offertaxbreakupdetails start  ##################### 		
+	if(Offertaxbreakupdetails)
+	{
+	      Offertaxbreakupdetails end 		
+	}
+	else
+	{		 
+	     Max Sku Invoice Gst Start  	 
+	     Max Sku Invoice Gst End  
+	}
+	
+	Total
+	Tax Invoice Value (in figure)
+	Tax Invoice Value (in word)
+	Advance Payment Made(Rs)
+	
+	QR
+	
+	Is Reverse Charges Applicable: No
+	
+	##################################################
+	
+	Date diamondInvoiceNoteDate = simpleDateFormat.parse("01/04/2019")
+	
+	diamondInvoiceNoteDate
+	
+    Download Diamond Membership Tax Invoice of INR subcriptionAmount from Naaptol.com or request on support@naaptol.com</b></p>
+	
+	diamondQr
+#####################################################################################
+
+2) getGiftInvoiceCode
+		
+#####################################################################################		
+
+3) getDiamondInvoiceCode
+
+#####################################################################################
+
+4) getDiamondInvoiceCodeNew
+
+#####################################################################################

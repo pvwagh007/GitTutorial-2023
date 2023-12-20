@@ -1,0 +1,37 @@
+GstDetailsApi ( skuIds, invoiceDate )
+			
+		gstIds = getGstIdListBySkuIds( skuIds)
+		
+		1) Query:- SELECT gstHsnRate.pkgsthsnrateid 
+				 FROM SkuMaster skuMaster JOIN skuMaster.gstHsnRate  gstHsnRate  
+				 WHERE pkskuid in( skuIds) AND skuMaster.isactive='1' 
+			
+			
+		   getGstDetailsRatetime(gstIds,invoiceDate)
+			
+		2) Query:- SELECT ratetime.pkgsthsnratetimeid, MAX(ratetime.integrated_gstrate),ratetime.fkgsthsnrateid
+					FROM gst_hsn_ratetime ratetime join gst_hsn_rate gst ON gst.pkgsthsnrateid=ratetime.fkgsthsnrateid WHERE  ratetime.fkgsthsnrateid  in(:gstIds)  AND ratetime.isactive='Y'
+					if(invoiceDate)
+						AND  ratetime.effectivedate <= :invoiceDate
+					else	
+						AND  ratetime.effectivedate <= NOW()
+					GROUP BY ratetime.integrated_gstrate ORDER BY ratetime.effectivedate desc,ratetime.integrated_gstrate desc  LIMIT 1 
+			
+			if(getGstDetailsRatetime)
+			{
+				gst_hsn_ratetime(gstIds)
+			}
+			else
+			{
+					gst_hsn_rate
+					
+				   SELECT pkgsthsnrateid, MAX(integrated_gstrate)";
+				   FROM gst_hsn_rate WHERE pkgsthsnrateid in(:gstIds)  AND isactive='Y' GROUP BY integrated_gstrate DESC LIMIT 1
+			}
+			
+			3) Query:- select skuMaster.gstHsnRate.pkgsthsnrateid,skuMaster.gsthsncodenew,skuMaster.gsthsncodeneweffectivedate 
+		      from SkuMaster skuMaster 
+		      where skuMaster.gstHsnRate.pkgsthsnrateid =:commaSeparategstIds and skuMaster.pkskuid in (:skuIds) 
+		      AND  (skuMaster.gstHsnRate.pkgsthsnrateid is not null  OR skuMaster.gsthsncodenew is not ('')) 
+		      AND skuMaster.gsthsncodeneweffectivedate <=:invoiceDate
+			

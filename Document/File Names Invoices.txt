@@ -1,0 +1,124 @@
+
+##################################################################
+Courier Order --logistic wiseType-C
+##################################################################
+orderLablePrint.jsp
+			||
+ orderDetailBulkPrint.jsp
+			||
+		first part- 1)amazonOrderPrintDetailContent.jsp    
+					2)fedexOrderPrintDetailContent.jsp
+					3)orderPrintDetailContent.jsp
+				
+		Second part- 1)gstPrintInvoicePerformaConten.jsp   
+		             --> InvoicePrintGeneration.java
+					 
+					 2)printInvoicePerformaConten.jsp
+					 3)invoicePrintDetailContent.jsp	
+
+#######################################################################
+Courier Order  4 by 6
+#######################################################################
+singleOrderLablePrint.jsp
+				||
+	singleOrderDetailBulkPrint.jsp
+	     first part-1)singleAmazonOrderPrintDetailContent.jsp
+					2)singleFedexOrderPrintDetailContent.jsp
+					3)singleOrderPrintDetailContent.jsp
+					
+		 second part- 1)singleGstPrintInvoicePerformaConten
+						-->SingleInvoicePrintGeneration.java
+						
+		              2)printInvoicePerformaConten.jsp
+					  3)invoicePrintDetailContent.jsp
+
+#########################################################################
+Lp Order Invoice Type-D
+########################################################################
+orderDetailBulkPrintLP.jsp
+				first part-1) orderPrintDetailContentLP.jsp
+				
+				second part-1) printInvoicePerformaContenLP.jsp 
+							2) gstPrintInvoicePerformaContenLP.jsp
+							3) invoicePrintDetailContent.jsp
+
+###################################################################
+Post order
+####################################################################
+
+vppOrdersPrint.jsp
+			||
+	vppOrderBulkPrint.jsp
+			||
+			first part-1)vppOrderPrintContentOld.jsp				  
+			
+			Second part-1) gstPrintInvoicePerformaConten.jsp
+							--> InvoicePrintGeneration.java
+						2) invoicePrintDetailContentForVPPOld.jsp
+								
+
+			first part- 1)vppOrderPrintContent.jsp
+			
+			second part-1)gstPrintInvoicePerformaConten.jsp
+					      --> InvoicePrintGeneration.java
+					    2)invoicePrintDetailContentForVPP.jsp
+						
+						
+						
+######################################################################
+Vendor print complaint 
+#####################################################################
+	
+	reshipOrderLablesPrintForCaseForVendorNew.jsp
+	
+			first part Include jsp -
+			
+							1)amazonReshipOrderLabelPrintContentForCaseNewForVendor
+							2)fedexReshipOrderLabelPrintContentForCaseNewForVendor
+							**3)reshipOrderLabelPrintContentForCaseNewForVendor.jsp
+			
+			second part Include jsp -
+			
+							**1)invoicePrintDetailContentComplaintNewForVendor.jsp
+
+
+########################################################################
+Vendor print complaint   4 by 6
+########################################################################
+	singleReshipOrderLablesPrintForCaseForVendorNew.jsp
+
+		first part-
+					1) singleAmazonReshipOrderLabelPrintContentForCaseNewForVendor.jsp
+					2) fedexSingleReshipOrderLabelPrintContentForCaseNewForVendor.jsp
+					**3) singleReshipOrderLabelPrintContentForCaseNewForVendor.jsp
+		second part-
+
+					**1) singleInvoicePrintDetailContentComplaintNewForVendor.jsp
+					
+#############################################################################
+Gift Order Print
+
+	giftOrderInvoicePrint.jsp
+	
+#############################################################################
+Diamond Order Print
+
+	diamondOrderInvoicePrint.jsp
+	
+###############################################################################
+
+Search For-Vendor Menifesto Request Report For Invoices 
+
+###############################################################################
+
+Quality Managment System (QMM)
+Qms_All Table (cspLog)
+
+Search-Qms Mark Evaluation
+1)Qms_qcData(Imp)
+2)qms_details
+3)qms_groupQuntions
+
+
+
+
